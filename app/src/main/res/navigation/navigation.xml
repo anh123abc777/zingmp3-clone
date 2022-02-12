@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/weeklyRankingsFragment"
+        android:name="app.com.crawlmp3.weeklyrankings.WeeklyRankingsFragment"
+        android:label="Weekly rankings">
+    </fragment>
+    <fragment
+        android:id="@+id/playlistFragment"
+        android:name="app.com.crawlmp3.playlist.PlaylistFragment"
+        android:label="Playlist"
+        tools:layout="@layout/fragment_playlist">
+        <argument
+            android:name="idAlbum"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_playlistFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="app.com.crawlmp3.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_artistProfileFragment"
+            app:destination="@id/artistProfileFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_playlistFragment"
+            app:destination="@id/playlistFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="app.com.crawlmp3.home.HomeFragment"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_homeFragment_to_playlistFragment"
+            app:destination="@id/playlistFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_searchFragment"
+        app:popUpTo="@id/searchFragment" />
+    <fragment
+        android:id="@+id/artistProfileFragment"
+        android:name="app.com.crawlmp3.artistprofile.ArtistProfileFragment"
+        android:label="ArtistProfileFragment" >
+        <argument
+            android:name="artistProfile"
+            app:argType="app.com.crawlmp3.network.Artist" />
+    </fragment>
+</navigation>

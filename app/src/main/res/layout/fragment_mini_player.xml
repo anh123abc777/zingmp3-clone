@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="song"
+            type="app.com.crawlmp3.network.Song" />
+        <variable
+            name="viewModel"
+            type="app.com.crawlmp3.MainViewModel" />
+
+    </data>
+    <RelativeLayout
+        android:id="@+id/miniPlayerFrame"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        tools:context=".miniplayer.MiniPlayerFragment"
+        android:background="#ccb9bc"
+        android:onClick="@{() -> viewModel.showBottomSheet()}"
+        android:elevation="8dp"
+        setVisibilityLayout="@{song}">
+
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_broken_image"
+            imageUrl="@{song.thumbnail}"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/songName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{song.name}"
+            android:textSize="18sp"
+            android:layout_toEndOf="@+id/thumbnail"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/artists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{song.artists_names}"
+            android:textSize="16sp"
+            android:layout_toEndOf="@+id/thumbnail"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="48dp"
+            android:layout_centerVertical="true"
+            android:onClick="@{() -> viewModel.onChangeStatePlay()}"/>
+    </RelativeLayout>
+</layout>
+
+

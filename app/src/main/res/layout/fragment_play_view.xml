@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/playStrackView"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="app.com.crawlmp3.play.PlayViewViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".play.PlayViewFragment"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:elevation="8dp"
+            app:cardElevation="8dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center_horizontal"
+                imageUrl="@{viewModel.song.thumbnail}"
+                android:src="@drawable/ic_broken_image"
+            />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/fullSeekBar"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <SeekBar
+                android:id="@+id/simpleSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:max="@{viewModel.song.duration}"
+                android:layout_centerInParent="true"
+                android:progress="@{viewModel.progress}"
+
+            />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="0:00"
+                    formatTime="@{viewModel.progress}"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    formatTime="@{viewModel.song.duration}"
+                    android:text="4:00"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:layout_alignBaseline="@id/fullSeekBar"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/songName"
+                android:text="@{viewModel.song.name}"
+                android:textSize="16dp"
+            />
+            <TextView
+                android:id="@+id/artists"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.song.artists_names}"
+                android:textSize="10dp"
+                />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/skip_previous"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/skip_previous"
+                android:layout_toLeftOf="@id/play"
+                android:layout_marginEnd="16dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{() -> viewModel.onPrevious()}"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/play"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/play"
+                android:layout_centerInParent="true"
+                android:onClick="@{() -> viewModel.onChangeState()}"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/skip_next"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/skip_next"
+                android:layout_toRightOf="@id/play"
+                android:layout_marginStart="16dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{() -> viewModel.onNext()}"
+                />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>

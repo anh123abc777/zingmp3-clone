@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CrawlMp3</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="artists">Artists</string>
+    <string name="song_name">Song name</string>
+    <string name="time_default_formatter" translatable="false">%02d:%02d</string>
+    <string name="getUrlMp3">http://api.mp3.zing.vn/api/streaming/audio/%s/128</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="library">Library</string>
+    <string name="your_client_id">9aa3e5c111f944d0810ddcfceeff6c9b</string>
+    <string name="com_spotify_sdk_redirect_scheme">app.com.crawlmp3</string>
+    <string name="com_spotify_sdk_redirect_host">callback</string>
+    <string name="UriThumbAlbum">https://photo-resize-zmp3.zadn.vn/w320_r1x1_jpeg/%s</string>
+</resources>

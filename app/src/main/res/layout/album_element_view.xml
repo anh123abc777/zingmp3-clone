@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="album"
+            type="app.com.crawlmp3.network.Album" />
+        <variable
+            name="onListener"
+            type="app.com.crawlmp3.home.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:background="@drawable/border_playlist"
+        android:onClick="@{()-> onListener.onClick(album)}">
+
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="152dp"
+            android:layout_height="144dp"
+            android:src="@drawable/ic_broken_image"
+            android:layout_gravity="center"
+            imageUrl="@{album.thumb}"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="144dp"
+            android:layout_height="48dp"
+            android:paddingTop="8dp"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:ellipsize="marquee"
+            android:scrollHorizontally="true"
+            android:text="@{album.name}"
+            android:layout_gravity="center"
+            android:background="@color/p_dark"
+            />
+    </LinearLayout>
+</layout>
