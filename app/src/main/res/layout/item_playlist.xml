@@ -16,7 +16,7 @@
         android:orientation="vertical"
         android:layout_margin="8dp"
         android:background="@drawable/border_playlist"
-        android:onClick="@{()-> onListener.onClick(album)}">
+        android:onClick="@{()-> onListener.onClick(album.Id)}">
 
         <ImageView
             android:id="@+id/thumbnail"
@@ -36,7 +36,6 @@
             android:scrollHorizontally="true"
             android:text="@{album.name}"
             android:layout_gravity="center"
-            android:background="@color/p_dark"
             />
     </LinearLayout>
 </layout>

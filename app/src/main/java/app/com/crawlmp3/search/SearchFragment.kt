@@ -15,7 +15,7 @@ import app.com.crawlmp3.MainViewModelFactory
 import app.com.crawlmp3.R
 import app.com.crawlmp3.adapter.ArtistAdapter
 import app.com.crawlmp3.databinding.FragmentSearchBinding
-import app.com.crawlmp3.home.HomeAdapter
+import app.com.crawlmp3.home.PlaylistAdapter
 import app.com.crawlmp3.network.Song
 import app.com.crawlmp3.weeklyrankings.ListSongAdapter
 import app.com.crawlmp3.weeklyrankings.OnClickListener
@@ -59,7 +59,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun setAdapterAlbums(){
-        val adapterAlbums = HomeAdapter(app.com.crawlmp3.home.OnClickListener {
+        val adapterAlbums = PlaylistAdapter(app.com.crawlmp3.home.OnClickListener {
             viewModel.onClickAlbum(it)
         })
         viewModel.navigateToTracksOfAlbum.observe(viewLifecycleOwner){

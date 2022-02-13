@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
-            tools:listitem="@layout/album_element_view"
+            tools:listitem="@layout/item_playlist"
             app:albumGroup="@{viewModel.rawSearch.data.get(1).album}"
             raw="@{viewModel.rawSearch}"
             android:visibility="gone"

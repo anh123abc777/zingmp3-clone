@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:albumGroup="@{viewModel.albums}"
-            tools:listitem="@layout/album_element_view"
+            tools:listitem="@layout/item_playlist"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
             />
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:albumGroup="@{viewModel.albumsIndie}"
-            tools:listitem="@layout/album_element_view"
+            tools:listitem="@layout/item_playlist"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
             />

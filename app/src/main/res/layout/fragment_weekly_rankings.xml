@@ -16,61 +16,30 @@
         android:orientation="vertical"
         >
 
-<!--        <com.google.android.material.tabs.TabLayout-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/music_list"-->
 <!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            >-->
-
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Tab 1"-->
-<!--                android:icon="@drawable/ic_home"-->
-<!--                />-->
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Tab 1"-->
-<!--                android:icon="@drawable/ic_home"-->
-<!--                />-->
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Tab 1"-->
-<!--                android:icon="@drawable/ic_home"-->
-<!--                />-->
-
-<!--        </com.google.android.material.tabs.TabLayout>-->
-<!--        <TextView-->
-<!--            android:id="@+id/status"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:text="@{viewModel.status}"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            tools:listitem="@layout/song_element_view"-->
+<!--            app:listData="@{viewModel.songs}"-->
+<!--            android:background="@color/primary"-->
+<!--            android:paddingBottom="112dp"-->
+<!--            android:paddingTop="8dp"-->
+<!--            android:clipToPadding="false"-->
 <!--            />-->
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/music_list"
+            android:id="@+id/group_playlist"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/song_element_view"
-            app:listData="@{viewModel.songs}"
-            android:background="@color/primary"
+            android:orientation="vertical"
             android:paddingBottom="112dp"
-            android:paddingTop="8dp"
             android:clipToPadding="false"
+            tools:listitem="@layout/item_group_playlist"
+            firstData="@{viewModel.albums}"
+            secondData="@{viewModel.albumsIndie}"
             />
-
-<!--        <fragment-->
-<!--            android:id="@+id/playlista"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            app:defaultNavHost="true"-->
-<!--            app:navGraph="@navigation/navigation_playlist"-->
-<!--            android:name="androidx.navigation.fragment.NavHostFragment"-->
-<!--            />-->
-
     </LinearLayout>
 </layout>

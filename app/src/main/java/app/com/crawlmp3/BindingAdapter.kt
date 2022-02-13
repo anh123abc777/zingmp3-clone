@@ -10,14 +10,27 @@ import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import app.com.crawlmp3.adapter.ArtistAdapter
+import app.com.crawlmp3.adapter.GroupPlaylistAdapter
 import app.com.crawlmp3.weeklyrankings.ListSongAdapter
 import app.com.crawlmp3.network.Song
-import app.com.crawlmp3.home.HomeAdapter
+import app.com.crawlmp3.home.PlaylistAdapter
 import app.com.crawlmp3.network.Album
+import app.com.crawlmp3.network.GroupPlaylist
 import app.com.crawlmp3.network.RawSearch
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import timber.log.Timber
+
+@BindingAdapter(value =["firstData","secondData"])
+fun bindDataToGroupPlaylist(recyclerView: RecyclerView,firstData: List<Album>?,secondData: List<Album>?){
+    if(firstData!=null && secondData!=null){
+        val adapter = recyclerView.adapter as GroupPlaylistAdapter
+        val data = listOf(GroupPlaylist("Top100",firstData),
+        GroupPlaylist("Indie",secondData)
+        )
+        adapter.submitList(data)
+    }
+}
 
 @BindingAdapter(value=["listData","raw"],requireAll = false)
 fun bindRecyclerView(
@@ -69,7 +82,7 @@ fun bindAlbumGroup(recyclerView: RecyclerView,
                    data: List<Album>?=null,
                     raw: RawSearch?=null){
 
-    val adapter = recyclerView.adapter as HomeAdapter
+    val adapter = recyclerView.adapter as PlaylistAdapter
     if (data!=null) {
         adapter.submitList(data)
     }else{

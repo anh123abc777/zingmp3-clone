@@ -22,12 +22,12 @@ class HomeFragment : Fragment() {
         binding.viewModel = homeViewModel
         binding.lifecycleOwner = this
 
-        val adapter = HomeAdapter(OnClickListener {  idAlbum->
+        val adapter = PlaylistAdapter(OnClickListener { idAlbum->
             homeViewModel.onClickAlbum(idAlbum)
         })
         binding.albums.adapter = adapter
 
-        val adapterIndie = HomeAdapter(OnClickListener{ idAlbum ->
+        val adapterIndie = PlaylistAdapter(OnClickListener{ idAlbum ->
             homeViewModel.onClickAlbum(idAlbum)
         })
         binding.albumsIndie.adapter = adapterIndie

@@ -5,12 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import app.com.crawlmp3.databinding.AlbumElementViewBinding
 
 import app.com.crawlmp3.network.Album
 
-class HomeAdapter(
-    private val clickListener: OnClickListener) : ListAdapter<Album, HomeAdapter.ViewHolder>(DiffCallBack){
+class PlaylistAdapter(
+    private val clickListener: OnClickListener) : ListAdapter<Album, PlaylistAdapter.ViewHolder>(DiffCallBack){
     companion object DiffCallBack : DiffUtil.ItemCallback<Album>() {
         override fun areContentsTheSame(oldItem: Album, newItem: Album): Boolean {
             return oldItem.id == newItem.id
@@ -23,7 +22,8 @@ class HomeAdapter(
     }
 
     class ViewHolder private constructor(
-        val binding : AlbumElementViewBinding) : RecyclerView.ViewHolder(binding.root) {
+        val binding : app.com.crawlmp3.databinding.ItemPlaylistBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(album: Album?, clickListener: OnClickListener) {
             binding.album = album
             binding.onListener = clickListener
@@ -33,7 +33,7 @@ class HomeAdapter(
         companion object{
             fun from(parent: ViewGroup) : ViewHolder{
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = AlbumElementViewBinding
+                val binding = app.com.crawlmp3.databinding.ItemPlaylistBinding
                                 .inflate(layoutInflater,parent,false)
 
                 return ViewHolder(binding)
@@ -52,5 +52,5 @@ class HomeAdapter(
 }
 
 class OnClickListener(val clickListener: (idAlbum : String) -> Unit){
-    fun onClick(album : Album) = clickListener(album.id)
+    fun onClick(albumId : String) = clickListener(albumId)
 }
