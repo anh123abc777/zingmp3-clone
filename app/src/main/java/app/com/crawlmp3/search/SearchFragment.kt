@@ -109,6 +109,8 @@ class SearchFragment : Fragment() {
                 binding.songGroup.visibility = View.VISIBLE
                 binding.txtSong.visibility = View.VISIBLE
 
+                binding.chips.visibility = View.VISIBLE
+
                 return true
             }
             override fun onQueryTextChange(newText: String?): Boolean {

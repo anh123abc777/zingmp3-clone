@@ -62,11 +62,6 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setupWithNavController(navController)
         binding.bottomNavigation.selectedItemId = R.id.homeFragment
 
-        NavigationUI.setupActionBarWithNavController(this,navController)
-
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment,R.id.weeklyRankingsFragment,R.id.searchFragment))
-        setupActionBarWithNavController(navController,appBarConfiguration)
-
         navController.addOnDestinationChangedListener{ _, destination, _ ->
             when(destination.id){
                 R.id.playViewFragment -> hideNavBottom()
