@@ -30,7 +30,7 @@ interface Mp3ApiService{
             @Path("request") request : String?="",
             @Query("type") type : String?=null,
             @Query("key") key : String?=null,
-            @Query("playlists") list : String?="") : Deferred<Raw>
+            @Query("list") list : String?="") : Deferred<Raw>
 
 }
 
@@ -71,7 +71,7 @@ interface Mp3ApiServiceViewSource{
     @GET("playlist/{id}")
     fun getKeyAsync(
         @Path("id") idAlbum: String,
-        @Query("playlists") query: String?="") : Deferred<String>
+        @Query("list") query: String?="") : Deferred<String>
 }
 
 object Mp3ApiViewSource{

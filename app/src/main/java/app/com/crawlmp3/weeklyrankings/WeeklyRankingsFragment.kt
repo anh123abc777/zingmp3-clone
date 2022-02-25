@@ -16,7 +16,6 @@ import app.com.crawlmp3.R
 import app.com.crawlmp3.adapter.GroupPlaylistAdapter
 import app.com.crawlmp3.databinding.FragmentWeeklyRankingsBinding
 import app.com.crawlmp3.home.HomeFragmentDirections
-import app.com.crawlmp3.home.OnClickListener
 import timber.log.Timber
 
 class WeeklyRankingsFragment : Fragment() {
@@ -34,14 +33,14 @@ class WeeklyRankingsFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        val adapter = GroupPlaylistAdapter(OnClickListener {
-            viewModel.onClickAlbum(it)
-        })
-        binding.groupPlaylist.adapter = adapter
-//        val adapter = ListSongAdapter(OnClickListener { song ->
-//            viewModel.onSongClick(song)
+//        val adapter = GroupPlaylistAdapter(OnClickListener {
+//            viewModel.onClickAlbum(it)
 //        })
-//        binding.musicList.adapter = adapter
+//        binding.groupPlaylist.adapter = adapter
+        val adapter = ListSongAdapter(OnClickListener { song ->
+            viewModel.onSongClick(song)
+        })
+        binding.musicList.adapter = adapter
 
         observeNavigateToPlaylist()
 

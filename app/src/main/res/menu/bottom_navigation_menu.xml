@@ -3,8 +3,8 @@
     <item
         android:id="@+id/weeklyRankingsFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_home"
-        android:title="@string/home"
+        android:icon="@drawable/ic_baseline_bar_chart_24"
+        android:title="Chart"
     />
     <item
         android:id="@+id/searchFragment"

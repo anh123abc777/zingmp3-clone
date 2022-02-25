@@ -32,7 +32,7 @@
             >
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="360dp"
                 android:layout_gravity="center_horizontal"
                 imageUrl="@{viewModel.song.thumbnail}"
                 android:src="@drawable/ic_broken_image"
@@ -41,7 +41,7 @@
 
         <LinearLayout
             android:id="@+id/fullSeekBar"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
             android:layout_width="match_parent"
@@ -63,13 +63,18 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp">
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:text="0:00"
                     formatTime="@{viewModel.progress}"
+                    android:layout_marginBottom="8dp"
                 />
 
                 <TextView
@@ -86,7 +91,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="32dp"
             android:layout_alignBaseline="@id/fullSeekBar"
             >
             <TextView
@@ -94,7 +98,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/songName"
                 android:text="@{viewModel.song.name}"
-                android:textSize="16dp"
+                android:textSize="20dp"
+                android:layout_gravity="center"
             />
             <TextView
                 android:id="@+id/artists"
@@ -102,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.song.artists_names}"
                 android:textSize="10dp"
+                android:layout_gravity="center"
                 />
         </LinearLayout>
 
@@ -111,7 +117,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:layout_gravity="end"
+            >
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/skip_previous"

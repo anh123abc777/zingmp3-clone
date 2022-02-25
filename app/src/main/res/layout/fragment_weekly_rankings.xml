@@ -16,30 +16,30 @@
         android:orientation="vertical"
         >
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/music_list"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--            tools:listitem="@layout/song_element_view"-->
-<!--            app:listData="@{viewModel.songs}"-->
-<!--            android:background="@color/primary"-->
-<!--            android:paddingBottom="112dp"-->
-<!--            android:paddingTop="8dp"-->
-<!--            android:clipToPadding="false"-->
-<!--            />-->
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/group_playlist"
+            android:id="@+id/music_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"
+            tools:listitem="@layout/song_element_view"
+            app:listData="@{viewModel.songs}"
+            android:background="@color/primary"
             android:paddingBottom="112dp"
+            android:paddingTop="8dp"
             android:clipToPadding="false"
-            tools:listitem="@layout/item_group_playlist"
-            firstData="@{viewModel.albums}"
-            secondData="@{viewModel.albumsIndie}"
             />
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/group_playlist"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            android:orientation="vertical"-->
+<!--            android:paddingBottom="112dp"-->
+<!--            android:clipToPadding="false"-->
+<!--            tools:listitem="@layout/item_group_playlist"-->
+<!--            firstData="@{viewModel.albums}"-->
+<!--            secondData="@{viewModel.albumsIndie}"-->
+<!--            />-->
     </LinearLayout>
 </layout>
